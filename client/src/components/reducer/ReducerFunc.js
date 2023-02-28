@@ -1,6 +1,6 @@
 
 export default function ReducerFunc(state, payLoad){
-  console.log(state, payLoad)
+  //console.log(state, payLoad)
   switch(payLoad.type){
     case 'SET_TODO':
       return{
@@ -16,6 +16,12 @@ export default function ReducerFunc(state, payLoad){
             ...state.todos,
             payLoad.value //todo
           ]
+        }
+      
+      case 'SET_SEARCH':
+        return{
+          ...state,
+          search:payLoad.value
         }
     default:break;
   }
