@@ -5,15 +5,17 @@ import { useAuth } from "./AuthContext";
   const {user, setUser} = useAuth();
 
   
-  const login = () => {
+  const login = () => {    
+  localStorage.setItem('user', JSON.stringify({name: 'enes', id:1}
+))
     setUser({
       name: 'enes',
-      id:1,
-      auth:"true"
+      id:1
     })
     console.log("İçerdeyim");
 }
   const logout = () => {
+    localStorage.removeItem('user');
     setUser(false);
     console.log("im out");
   }

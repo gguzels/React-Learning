@@ -1,6 +1,5 @@
 import Home from "./Home";
-import SiteProvider from "./SiteContext";
-import AuthProvider from "./AuthContext";
+import { SiteProvider, AuthProvider } from "./AllProvider";
 
 export default function ContextIndex(){
 

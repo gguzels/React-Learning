@@ -1,13 +1,17 @@
-import { useContext } from "react";
-import { createContext, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
+import Reducer from "./Reducer";
 
 const Context = createContext();
 
 const Provider = ({children}) => {
 
-  const [theme, setTheme] = useState('light');
-  const [lang, setLang] = useState('tr');
-  const data = {theme, setTheme, lang, setLang};
+  const [state, dispatch] = useReducer(Reducer, {
+    theme: localStorage.getItem('theme') || 'light',
+    lang: 'tr'
+  }) //local storage'da varsa önce oraya bakacak 'theme' için
+
+
+  const data = {...state, dispatch};
 
   return(
     <Context.Provider value={data} >

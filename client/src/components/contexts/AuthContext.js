@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 const Context = createContext();
 
 const Provider = ({children}) => {
 
-  const [user, setUser] = useState(false);
+  const localUser = localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')) : false;
+  const [user, setUser] = useState(localUser);
 
   const data = {user, setUser};
 

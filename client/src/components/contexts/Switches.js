@@ -2,19 +2,18 @@ import {useSite} from "./SiteContext";
 
 export default function Switches() {
 
-  const {setLang, setTheme, lang, theme} = useSite();
-  console.log(lang, theme);
-
+  const {theme, lang, dispatch} = useSite();
+  console.log(theme, lang);
   return (
     <div className="p-2">
       <div className="row">
         <div className="col-lg-6">
           <h3>Renk Değiştir</h3>
-          <button className="btn btn-secondary" onClick={()=> setTheme(theme==='light'?'dark':'light')}>Bas Renk Değişsin</button>
+          <button className="btn btn-secondary" onClick={()=>dispatch({  type: 'toggle_theme'})}>Bas Renk Değişsin</button>
         </div>
         <div className="col-lg-6">
           <h3>Dil Değiştir</h3>
-          <button className="btn btn-secondary" onClick={()=> setLang(lang==='tr'?'en':'tr')}>Bas Dil Değişsin</button>
+          <button className="btn btn-secondary" onClick={()=>dispatch({  type: 'toggle_lang'})}>Bas Dil Değişsin</button>
         </div>
       </div>
     </div>
